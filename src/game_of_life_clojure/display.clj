@@ -21,7 +21,7 @@
           (style :foreground color :background color))))
 
 (defn paint-fn [canvas graphics data]
-  (println "paint")
+  ;(println "paint")
   (doseq [x (range (count data))
           y (range (count (nth data 0)))]
     (draw-cell canvas graphics x y (nth (nth data x) y))))

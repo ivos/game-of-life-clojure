@@ -5,6 +5,6 @@
   (:use game-of-life-clojure.logic))
 
 (defn -main [& args]
-  (let [seed-data (load-random 10)]
+  (let [seed-data (load-random 100)]
     (show-window)
     (run seed-data)))
