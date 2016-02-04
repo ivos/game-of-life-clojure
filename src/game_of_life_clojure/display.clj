@@ -15,7 +15,7 @@
 
 (defn draw-cell [canvas graphics x y value]
   (let [cell-width (- cell-size 1)
-        color (if value "#000000" "#ffffff")]
+        color "#000000"]
     (draw graphics
           (rect (* x cell-size) (* y cell-size) cell-width cell-width)
           (style :foreground color :background color))))
@@ -24,7 +24,8 @@
   ;(println "paint")
   (doseq [x (range (count data))
           y (range (count (nth data 0)))]
-    (draw-cell canvas graphics x y (nth (nth data x) y))))
+    (let [value (nth (nth data x) y)]
+      (if value (draw-cell canvas graphics x y value)))))
 
 (defn window-content [data]
   (let [content-canvas (canvas :id :canvas :background "#ffffff" :paint #(paint-fn %1 %2 data))]
